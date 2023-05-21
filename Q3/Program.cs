@@ -1,5 +1,5 @@
 ﻿class Program {
-    static void Main (string[] args) {
+    static void Main() {
         int alphabet = int.Parse(Console.ReadLine());
 
         int digits = int.Parse(Console.ReadLine());
