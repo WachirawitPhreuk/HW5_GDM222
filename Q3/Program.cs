@@ -1,20 +1,12 @@
 ﻿class Program {
     static void Main (string[] args) {
-        int m = int.Parse(Console.ReadLine());
-        int n = int.Parse(Console.ReadLine());
+        int alphabet = int.Parse(Console.ReadLine());
+        int digits = int.Parse(Console.ReadLine());
         
-        char[] alphabetCode = new char[m];
-        int[] numberCode = new int[n];
-
-        for(int i = 0; i<m ;i++) {
-            alphabetCode[i] = 'A';
-        }
-
-        for(int i = 0; i<n ;i++) {
-            numberCode[i] = 0;
-        }
-
-       Console.WriteLine("{0}", ); 
+        string lastCode = new string('A', alphabet) + new string('0', digits);
+        int maxProduct  = (alphabet*26) + (digits*10);
+        string items = Console.ReadLine();
+        
         /*while(true) {
         string items =  Console.ReadLine();
         if(items == "Stop") {
