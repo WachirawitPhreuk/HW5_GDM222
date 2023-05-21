@@ -25,21 +25,53 @@
         continue;
         }
 
+        string code = NextCode(lastCode, alphabet, digits);
+        itemsID.Add(code, items);
+        lastCode = code;
         }
 
         string itemsCode = Console.ReadLine();
     }
 
-    static int Numbers(int num, int now) {
-        if(now == 0) {
-        
-        if(num < 9) {num += 1;}
-        
-        else if(num == 9) {num = 0;}
-        }
-        return num;
-    }
-    /*static string Items(string items) {
+    static string NextCode(string code, int alphabet, int digits)
+    {
+        char[] codeArray = code.ToCharArray();
+        int lastIndex = alphabet + digits - 1;
 
-    }*/
+        for (int i = lastIndex; i >= 0; i--)
+        {
+            char c = codeArray[i];
+
+            if (char.IsDigit(c))
+            {
+                if (c == '9')
+                {
+                    codeArray[i] = '0';
+
+                    if (i == 0)
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    codeArray[i] = (char)(c + 1);
+                    break;
+                }
+            }
+            else if (char.IsLetter(c))
+            {
+                if (c == 'Z')
+                {
+                    codeArray[i] = 'A';
+                }
+                else
+                {
+                    codeArray[i] = (char)(c + 1);
+                    break;
+                }
+            }
+        }
+        return new string(codeArray);
+    }
 }
